@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Skill } from "../../../model/types";
+import { Error, Skill } from "../../../model/types";
 
 const skillJson = [
   {
@@ -26,6 +26,15 @@ const skillJson = [
   },
 ];
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<Skill>) => {
-  
+const handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<Skill[] | Error>
+) => {
+  try {
+    return res.status(200).json(skillJson);
+  } catch (error) {
+    return res.status(400).json({ error: error.toString() });
+  }
 };
+
+export default handler;

@@ -4,3 +4,7 @@ export interface Skill {
   description: string;
   imageUrl: string;
 }
+
+export interface Error {
+  error: string;
+}
