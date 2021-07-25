@@ -14,7 +14,7 @@ export interface ITimeline {
   title: string;
   location: string;
   description: string;
-  buttonText: string;
+  buttonText?: string | undefined;
   date: string;
   icon: string;
 }

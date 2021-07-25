@@ -1,9 +1,16 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Card from "../components/Card";
-import { Skill } from "../model/types";
+import Timeline from "../components/Timeline";
+import { ITimeline, Skill } from "../model/types";
 
-export default function Home({ response }: { response: Skill[] }) {
+export default function Home({
+  response,
+  timeline,
+}: {
+  response: Skill[];
+  timeline: ITimeline[];
+}) {
   // console.log(response);
   return (
     <div className="flex flex-col gap-5 font-mono">
@@ -40,6 +47,7 @@ export default function Home({ response }: { response: Skill[] }) {
           ))}
         </div>
       </div>
+      <Timeline timeline={timeline} />
     </div>
   );
 }
@@ -47,7 +55,10 @@ export default function Home({ response }: { response: Skill[] }) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const fr = await fetch("http://localhost:3000/api/skill");
   const response = await fr.json();
+
+  const fw = await fetch("http://localhost:3000/api/timeline");
+  const timeline = await fw.json();
   return {
-    props: { response },
+    props: { response, timeline },
   };
 };

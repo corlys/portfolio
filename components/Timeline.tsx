@@ -5,9 +5,54 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { ITimeline } from "../model/types";
+import WorkIcon from "./WorkIcon";
+import SchoolIcon from "./SchoolIcon";
 
 const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
-  return <div></div>;
+  return (
+    <div className="mx-8">
+      <div className="text-center">TIMELINE</div>
+      <VerticalTimeline>
+        {timeline.map((tl) => {
+          let isWorkIcon = tl.icon === "work";
+          let showButton =
+            tl.buttonText !== undefined &&
+            tl.buttonText !== null &&
+            tl.buttonText !== "";
+
+          return (
+            <VerticalTimelineElement
+              key={tl.id}
+              date={tl.date}
+              dateClassName="date"
+              iconStyle={
+                isWorkIcon
+                  ? { background: "#06D6A0" }
+                  : { background: "#f9c74f" }
+              }
+              icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
+            >
+              <h3 className="vertical-timeline-element-title">{tl.title}</h3>
+              <h5 className="vertical-timeline-element-subtitle">
+                {tl.location}
+              </h5>
+              <p id="description">{tl.description}</p>
+              {showButton && (
+                <a
+                  className={`button ${
+                    isWorkIcon ? "workButton" : "schoolButton"
+                  }`}
+                  href="/"
+                >
+                  {tl.buttonText}
+                </a>
+              )}
+            </VerticalTimelineElement>
+          );
+        })}
+      </VerticalTimeline>
+    </div>
+  );
 };
 
 export default Timeline;
