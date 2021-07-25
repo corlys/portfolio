@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Card from "../components/Card";
 import { Skill } from "../model/types";
 
@@ -48,7 +47,6 @@ export default function Home({ response }: { response: Skill[] }) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const fr = await fetch("http://localhost:3000/api/skill");
   const response = await fr.json();
-  console.log(response);
   return {
     props: { response },
   };

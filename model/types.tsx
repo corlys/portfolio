@@ -8,3 +8,13 @@ export interface Skill {
 export interface Error {
   error: string;
 }
+
+export interface ITimeline {
+  id: string;
+  title: string;
+  location: string;
+  description: string;
+  buttonText: string;
+  date: string;
+  icon: string;
+}
