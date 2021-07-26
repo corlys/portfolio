@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Card from "../components/Card";
 import Timeline from "../components/Timeline";
 import { ITimeline, Skill } from "../model/types";
@@ -20,9 +21,13 @@ export default function Home({
       <div className="mx-8 h-84 rounded-b-lg bg-gradient-to-r from-indigo-400 to-purple-500">
         <div className="py-14 grid sm:grid-cols-1 gap-4 justify-items-center items-center justify-center">
           <div className="sm:col-span-1 sm:justify-self-center">
-            <img
+            <Image
               className="rounded-full h-24"
               src="https://picsum.photos/id/237/200/200"
+              layout="fixed"
+              width={200}
+              height={200}
+              alt={"profile_image"}
             />
           </div>
           <h2 className="sm:col-span-1 sm:justify-self-center sm:text-2xl">
