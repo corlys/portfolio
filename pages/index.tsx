@@ -1,4 +1,6 @@
 import { GetStaticProps } from "next";
+import skills from "../data/skills";
+import timeline from "../data/timeline";
 import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/Card";
@@ -6,13 +8,13 @@ import Timeline from "../components/Timeline";
 import { ITimeline, Skill } from "../model/types";
 
 export default function Home({
-  response,
+  skills,
   timeline,
 }: {
-  response: Skill[];
+  skills: Skill[];
   timeline: ITimeline[];
 }) {
-  // console.log(response);
+  // console.log(skills);
   return (
     <div className="flex flex-col gap-5 font-mono">
       <Head>
@@ -25,8 +27,8 @@ export default function Home({
               className="rounded-full h-24"
               src="https://picsum.photos/id/237/200/200"
               layout="fixed"
-              width={200}
-              height={200}
+              width={100}
+              height={100}
               alt={"profile_image"}
             />
           </div>
@@ -41,7 +43,7 @@ export default function Home({
       <div className="mx-8 h-full rounded-lg bg-gradient-to-r from-purple-400 to-indigo-500">
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
           <h1 className="md:col-span-2 lg:col-span-3 lg:text-xl">Kewl Skilz</h1>
-          {response.map((skill) => (
+          {skills.map((skill) => (
             <Card
               key={skill.id}
               id={skill.id}
@@ -58,12 +60,8 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const fr = await fetch("http://localhost:3000/api/skill");
-  const response = await fr.json();
-
-  const fw = await fetch("http://localhost:3000/api/timeline");
-  const timeline = await fw.json();
+  
   return {
-    props: { response, timeline },
+    props: { skills, timeline },
   };
 };

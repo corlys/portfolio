@@ -10,8 +10,8 @@ const Card = ({ id, title, description, imageUrl }: Skill) => {
           className="rounded-full h-24"
           src={imageUrl}
           layout="fixed"
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           alt={"skill_image"}
         />
         <div className="text-xl">{title}</div>
