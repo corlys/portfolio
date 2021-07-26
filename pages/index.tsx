@@ -1,10 +1,16 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Card from "../components/Card";
-import { Skill } from "../model/types";
+import Timeline from "../components/Timeline";
+import { ITimeline, Skill } from "../model/types";
 
-export default function Home({ response }: { response: Skill[] }) {
+export default function Home({
+  response,
+  timeline,
+}: {
+  response: Skill[];
+  timeline: ITimeline[];
+}) {
   // console.log(response);
   return (
     <div className="flex flex-col gap-5 font-mono">
@@ -29,7 +35,7 @@ export default function Home({ response }: { response: Skill[] }) {
       </div>
       <div className="mx-8 h-full rounded-lg bg-gradient-to-r from-purple-400 to-indigo-500">
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
-          <h1 className="md:col-span-2 lg:col-span-3">Kewl Skilz</h1>
+          <h1 className="md:col-span-2 lg:col-span-3 lg:text-xl">Kewl Skilz</h1>
           {response.map((skill) => (
             <Card
               key={skill.id}
@@ -41,6 +47,7 @@ export default function Home({ response }: { response: Skill[] }) {
           ))}
         </div>
       </div>
+      <Timeline timeline={timeline} />
     </div>
   );
 }
@@ -48,8 +55,10 @@ export default function Home({ response }: { response: Skill[] }) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const fr = await fetch("http://localhost:3000/api/skill");
   const response = await fr.json();
-  console.log(response);
+
+  const fw = await fetch("http://localhost:3000/api/timeline");
+  const timeline = await fw.json();
   return {
-    props: { response },
+    props: { response, timeline },
   };
 };
