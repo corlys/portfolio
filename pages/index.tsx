@@ -35,7 +35,7 @@ export default function Home({
       </div>
       <div className="mx-8 h-full rounded-lg bg-gradient-to-r from-purple-400 to-indigo-500">
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
-          <h1 className="md:col-span-2 lg:col-span-3">Kewl Skilz</h1>
+          <h1 className="md:col-span-2 lg:col-span-3 lg:text-xl">Kewl Skilz</h1>
           {response.map((skill) => (
             <Card
               key={skill.id}

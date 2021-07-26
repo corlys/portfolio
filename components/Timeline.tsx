@@ -24,7 +24,7 @@ const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
             <VerticalTimelineElement
               key={tl.id}
               date={tl.date}
-              dateClassName="date"
+              dateClassName="text-indigo-600"
               contentStyle={{
                 background: "rgba(186, 10, 254, 100)",
                 color: "#ffff",
@@ -34,8 +34,8 @@ const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
               }}
               iconStyle={
                 isWorkIcon
-                  ? { background: "#06D6A0" }
-                  : { background: "#f9c74f" }
+                  ? { background: "#ca0afe" }
+                  : { background: "#ee00ff" }
               }
               icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
             >
