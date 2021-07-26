@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -45,14 +46,15 @@ const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
               </h5>
               <p id="description">{tl.description}</p>
               {showButton && (
-                <a
-                  className={`button ${
-                    isWorkIcon ? "workButton" : "schoolButton"
-                  }`}
-                  href="/"
-                >
-                  {tl.buttonText}
-                </a>
+                <Link href="/">
+                  <a
+                    className={`button ${
+                      isWorkIcon ? "workButton" : "schoolButton"
+                    }`}
+                  >
+                    {tl.buttonText}
+                  </a>
+                </Link>
               )}
             </VerticalTimelineElement>
           );
