@@ -25,6 +25,13 @@ const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
               key={tl.id}
               date={tl.date}
               dateClassName="date"
+              contentStyle={{
+                background: "rgba(186, 10, 254, 100)",
+                color: "#ffff",
+              }}
+              contentArrowStyle={{
+                borderRight: "7px solid rgba(186, 10, 254, 100)",
+              }}
               iconStyle={
                 isWorkIcon
                   ? { background: "#06D6A0" }

@@ -16,7 +16,6 @@ const timeline: ITimeline[] = [
     location: "Jakarta",
     description:
       "Became liason officer intern on BAWASLU for a few days, stood as liaison to Timor Lester Delegation",
-    buttonText: "View Project",
     date: "June 2018 - June 2018",
     icon: "work",
   },
