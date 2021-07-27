@@ -35,7 +35,7 @@ export default function Home({
           <h2 className="sm:col-span-1 sm:justify-self-center sm:text-2xl">
             Muhammad Naufal D.
           </h2>
-          <h2 className="col-span-2 sm:col-span-1">
+          <h2 className="sm:col-span-1 text-center">
             Blockchain & Front End Developer
           </h2>
         </div>
@@ -60,7 +60,6 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  
   return {
     props: { skills, timeline },
   };

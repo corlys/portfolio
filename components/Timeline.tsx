@@ -11,7 +11,7 @@ import SchoolIcon from "./SchoolIcon";
 
 const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
   return (
-    <div className="mx-8">
+    <div className="mx-8 overflow-hidden">
       <div className="text-center">TIMELINE</div>
       <VerticalTimeline>
         {timeline.map((tl) => {
@@ -25,7 +25,7 @@ const Timeline = ({ timeline }: { timeline: ITimeline[] }) => {
             <VerticalTimelineElement
               key={tl.id}
               date={tl.date}
-              dateClassName="text-indigo-600"
+              dateClassName="sm:text-white lg:text-indigo-500"
               contentStyle={{
                 background: "rgba(186, 10, 254, 100)",
                 color: "#ffff",
