@@ -25,7 +25,6 @@ const timeline: ITimeline[] = [
     location: "Surabaya",
     description:
       "Took a web developer internship in Telkomsel Surabaya, works on a website that counts a website visit and internet speed",
-    buttonText: "View Project",
     date: "June 2020 - August 2020",
     icon: "work",
   },
