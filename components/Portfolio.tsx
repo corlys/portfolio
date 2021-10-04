@@ -43,7 +43,7 @@ const Portfolio = ({ portfolio }: { portfolio: IPortfolio[] }) => {
               <h5 className="vertical-timeline-element-subtitle">{tl.uri}</h5>
               <p id="description">{tl.description}</p>
               {showButton && (
-                <a target="_blank" href={tl.uri}>
+                <a rel="noreferrer" target="_blank" href={tl.uri}>
                   <button className="mt-4 bg-indigo-200 hover:bg-indigo-500 text-indigo-700 font-semibold hover:text-white py-2 px-4 border border-indigo-600 hover:border-transparent rounded">
                     {tl.buttonText}
                   </button>

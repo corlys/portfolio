@@ -13,7 +13,7 @@ const portfolio: IPortfolio[] = [
   {
     id: "2",
     title: "Adhan App",
-    uri: "adhan-nextjs-typescript.vercel.app/",
+    uri: "https://adhan-nextjs-typescript.vercel.app",
     description: "Adhan App",
     icon: "work",
     date: "July 2021",
