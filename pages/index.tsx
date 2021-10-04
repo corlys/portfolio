@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { GetStaticProps } from "next";
 import skills from "../data/skills";
 import timeline from "../data/timeline";
+import portfolio from "../data/portfolio";
 import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/Card";
 import Timeline from "../components/Timeline";
-import { ITimeline, Skill } from "../model/types";
+import Portfolio from "../components/Portfolio";
+import { IPortfolio, ITimeline, Skill } from "../model/types";
 
 export default function Home({
   skills,
@@ -13,7 +16,9 @@ export default function Home({
 }: {
   skills: Skill[];
   timeline: ITimeline[];
+  portfolio: IPortfolio[];
 }) {
+  const [tab, setTab] = useState(0);
   // console.log(skills);
   return (
     <div className="flex flex-col gap-5 font-mono">
@@ -54,13 +59,29 @@ export default function Home({
           ))}
         </div>
       </div>
-      <Timeline timeline={timeline} />
+      <div className="flex flex-row justify-center">
+        <button
+          onClick={() =>
+            setTab((prev) => {
+              return prev === 0 ? 1 : 0;
+            })
+          }
+          className="mx-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
+          {tab === 0 ? "Switch to Portfolio" : "Switch to Timeline"}
+        </button>
+      </div>
+      {tab === 0 ? (
+        <Timeline timeline={timeline} />
+      ) : (
+        <Portfolio portfolio={portfolio} />
+      )}
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
-    props: { skills, timeline },
+    props: { skills, timeline, portfolio },
   };
 };

@@ -18,3 +18,13 @@ export interface ITimeline {
   date: string;
   icon: string;
 }
+
+export interface IPortfolio {
+  id: string;
+  title: string;
+  uri: string;
+  description: string;
+  buttonText?: string | undefined;
+  icon: string;
+  date: string;
+}

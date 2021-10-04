@@ -39,7 +39,7 @@ const timeline: ITimeline[] = [
   },
   {
     id: "4",
-    title: "Blockchain Developer Internship",
+    title: "Blockchain Developer Internship then Freelance",
     location: "Malang",
     description:
       "Making DAPPS for DOT Indonesia co., Making DAO website for social media Polka Party",
