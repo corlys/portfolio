@@ -8,6 +8,7 @@ const portfolio: IPortfolio[] = [
     description: "DApp for Simple Fund Staking",
     icon: "work",
     date: "September 2021",
+    buttonText: "Visit",
   },
   {
     id: "2",
@@ -16,6 +17,7 @@ const portfolio: IPortfolio[] = [
     description: "Adhan App",
     icon: "work",
     date: "July 2021",
+    buttonText: "Visit",
   },
 ];
 
